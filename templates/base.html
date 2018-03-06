@@ -1,12 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
+
         <meta charset="UTF-8">
-        <title>Title</title>
+
+        <title>Welcome!</title>
+        {% if title %}
+        <title>{{ title }} - !</title>
+        {% else %}
+        <title>Welcome!</title>
+        {% endif %}
+
     </head>
     <body>
+
         <div><a href="/index">Home</a></div>
-        <div><a href="/store">Store</a></div>
+        <div><a href="/clubplans">Club Plans</a></div>
 
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
@@ -16,6 +26,8 @@
         {% endif %}
 
         <hr>
+
         {% block content %} {% endblock %}
+
     </body>
 </html>

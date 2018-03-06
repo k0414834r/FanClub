@@ -11,5 +11,11 @@ def index():
 
     return render_template('index.html', user=user1)
 
+@app.route('/clubplans')
+def clubplans():
+
+    message = "Hello, Subscriber!"
+
+    return render_template('clubplans.html', message = message)
 
 app.run()
