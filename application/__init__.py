@@ -11,4 +11,6 @@ from flask_migrate import Migrate
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+login = LoginManager(app)
+
 from application import routes

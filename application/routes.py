@@ -2,14 +2,14 @@ from application import app, db
 from application.models import User, Post
 from flask import render_template, url_for, redirect, flash
 from application.forms import LoginForm
-from flask_login import logout_user, login_user
+from flask_login import logout_user, login_user, current_user
 
 @app.route("/")
-@app.route('/home')
+@app.route('/index')
 def index():
     user1 = {'username': 'Boian'}
     posts = Post.query.all()
-    return render_template('home.html', user=user1, posts=posts, title="Welcome!")
+    return render_template('index.html', user=user1, posts=posts, title="Welcome!")
 
 @app.route('/clubplans')
 def clubplans():
@@ -18,6 +18,8 @@ def clubplans():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
         flash("Login requested for user {}, remember_me = {}".format(form.username.data, form.remember_me.data))
@@ -35,3 +37,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    pass
