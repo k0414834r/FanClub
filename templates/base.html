@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div><a href="/index">Home</a></div>
+        <div><a href="/store">Store</a></div>
 
-</body>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <div>Hello, {{current_user.username}}!</div>
+        {% endif %}
+
+        <hr>
+        {% block content %} {% endblock %}
+    </body>
 </html>
