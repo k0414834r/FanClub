@@ -1,4 +1,5 @@
 from application import app, db
+from application.models import Post
 from flask import render_template, url_for, redirect, flash
 from application.forms import LoginForm
 from flask_login import logout_user
@@ -7,7 +8,8 @@ from flask_login import logout_user
 @app.route('/home')
 def index():
     user1 = {'username': 'Boian'}
-    return render_template('home.html', user=user1, title="Welcome!")
+    posts = Post.query.all()
+    return render_template('home.html', user=user1, posts=posts, title="Welcome!")
 
 @app.route('/clubplans')
 def clubplans():
