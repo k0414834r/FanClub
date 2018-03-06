@@ -1,8 +1,8 @@
 from application import app, db
-from application.models import Post
+from application.models import User, Post
 from flask import render_template, url_for, redirect, flash
 from application.forms import LoginForm
-from flask_login import logout_user
+from flask_login import logout_user, login_user
 
 @app.route("/")
 @app.route('/home')
@@ -21,6 +21,13 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         flash("Login requested for user {}, remember_me = {}".format(form.username.data, form.remember_me.data))
+        user = User.query.filter_by(username=form.username.data).first()
+
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+
+        login_user(user, remember=form.remember_me.data)
         return redirect(url_for('login'))
     return render_template('login.html', form=form)
 
