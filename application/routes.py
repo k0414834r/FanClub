@@ -1,3 +1,4 @@
+from application import app, db
 from flask import render_template, url_for, redirect, flash
 from application.forms import LoginForm
 from flask_login import logout_user
