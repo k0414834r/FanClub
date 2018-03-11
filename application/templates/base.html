@@ -9,13 +9,13 @@
         {% if title %}
         <title>{{ title }} - !</title>
         {% else %}
-        <title>Welcome!</title>
+        <title>Hello!</title>
         {% endif %}
 
     </head>
     <body>
 
-        <div><a href="/home">Home</a></div>
+        <div><a href="/index">Home</a></div>
         <div><a href="/clubplans">Club Plans</a></div>
 
         {% if current_user.is_anonymous %}
@@ -26,6 +26,18 @@
         {% endif %}
 
         <hr>
+
+        <div>
+           {% with messages = get_flashed_messages() %}
+               {% if messages %}
+               <ul>
+                   {% for message in messages %}
+                   <li>{{ message }}</li>
+                   {% endfor %}
+               </ul>
+               {% endif %}
+           {% endwith %}
+       </div>
 
         {% block content %} {% endblock %}
 
