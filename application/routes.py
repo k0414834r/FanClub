@@ -7,7 +7,7 @@ from flask_login import logout_user, login_user, current_user
 @app.route("/")
 @app.route('/index')
 def index():
-    user1 = {'username': 'Guest'}
+    user1 = {'username': 'Boian'}
     posts = Post.query.all()
     return render_template('index.html', user=user1, posts=posts, title="Welcome!")
 
@@ -19,7 +19,6 @@ def clubplans():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        flash("You have been logged in")
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
