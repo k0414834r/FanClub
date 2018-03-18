@@ -1,0 +1,10 @@
+h1 {
+	font-weight: bold, underline;
+	font-size: 44px;
+}
+
+h2 {
+	font-style: italic;
+	font-family: Georgia;
+	font-size: 32px;
+}
