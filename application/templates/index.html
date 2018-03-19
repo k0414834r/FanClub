@@ -2,10 +2,19 @@
 
 {% block content %}
 
-    <h1>Hello, {{user.username}}!</h1>
+    <div class="container">
+        <div class="index">
 
-    {% for post in posts %}
-<div>{{ post.title.main }} <h2>{{ post.body }}</h2></div>
-    {% endfor %}
+            <h1>Hello, {{user.username}}!</h1>
+
+            {% for post in posts %}
+
+            <h2>{{ post.title }}</h2>
+            <h3>{{ post.body }}</h3>
+
+            {% endfor %}
+
+        </div>
+    </div>
 
 {% endblock %}

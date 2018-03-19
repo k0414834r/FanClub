@@ -16,21 +16,24 @@
 
     </head>
     <body>
+        <div class="heading">
+            <ul>
+                <li><div style="float: left"><a href="/index">Home</a></div></li>
+                <li><div style="float: right"><a href="/clubplans">Club Plans</a></div></li>
 
-        <div><a href="/index">Home</a></div>
-        <div><a href="/clubplans">Club Plans</a></div>
+                <li><div style="text-align: center">
+                    {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    {% else %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                    <div>Hello, {{current_user.username}}!</div>
+                    {% endif %}
+                </div></li>
+            </ul>
+        </div>
 
-        {% if current_user.is_anonymous %}
-        <a href="{{ url_for('login') }}">Login</a>
-        {% else %}
-        <a href="{{ url_for('logout') }}">Logout</a>
-        <div>Hello, {{current_user.username}}!</div>
-        {% endif %}
-
-        <hr>
-
-         <div>
-             {% with messages = get_flashed_messages() %}
+        <div>
+            {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 <ul>
                     {% for message in messages %}
@@ -38,9 +41,9 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-             {% endwith %}
-         </div>
-
+            {% endwith %}
+        </div>
+        <br><br>
         {% block content %} {% endblock %}
 
     </body>

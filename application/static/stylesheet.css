@@ -1,10 +1,55 @@
+body {
+    background: transparent url("green.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.heading {
+    margin: 0 auto;
+    width: 50%;
+    padding: none;
+    font-size: 24px;
+    font-family: Georgia;
+    border-left: 1px;
+    border-color: black;
+}
+
+li {
+    list-style: none;
+    display: inline;
+}
+
+.container {
+    margin: 0 auto;
+    width: 50%;
+    background-color: white;
+    border-style: none;
+    padding: none;
+}
+
+.index {
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+    border-style: none;
+    padding: none;
+    font-family: Georgia;
+}
+
 h1 {
-	font-weight: bold, underline;
+	font-weight: bold;
+	text-decoration: underline;
 	font-size: 44px;
 }
 
 h2 {
 	font-style: italic;
-	font-family: Georgia;
 	font-size: 32px;
+}
+h3 {
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
 }
