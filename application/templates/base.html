@@ -18,10 +18,10 @@
     <body>
         <div class="heading">
             <ul>
-                <li><div style="float: left"><a href="/index">Home</a></div></li>
-                <li><div style="float: right"><a href="/clubplans">Club Plans</a></div></li>
+                <li><div style="float: left, padding-right: 10%"><a href="/index">Home</a></div></li>
+                <li><div style="float: right, padding-left: 10%"><a href="/clubplans">Club Plans</a></div></li>
 
-                <li><div style="text-align: center">
+                <li><div style="text-align: center, padding-left: 10%, padding-right: 10%">
                     {% if current_user.is_anonymous %}
                     <a href="{{ url_for('login') }}">Login</a>
                     {% else %}

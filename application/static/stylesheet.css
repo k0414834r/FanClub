@@ -10,7 +10,8 @@ body {
     padding: none;
     font-size: 24px;
     font-family: Georgia;
-    border-left: 1px;
+    border-bottom: 1px;
+    border-style: solid;
     border-color: black;
 }
 
@@ -52,4 +53,10 @@ h3 {
 
 a {
     text-decoration: none;
+}
+
+a:hover {
+    font-size: 32px;
+    color: green;
+    font-weight: bold;
 }
