@@ -1,5 +1,5 @@
 from application import app, db
-from application.models import User, Post
+from application.models import User, Post, NonMember, Member
 from flask import render_template, url_for, redirect, flash
 from application.forms import LoginForm, RegistrationForm
 from flask_login import logout_user, login_user, current_user
@@ -13,8 +13,9 @@ def index():
 
 @app.route('/clubplans')
 def clubplans():
-    message = "Hello, Subscriber!"
-    return render_template('clubplans.html', message=message)
+    nonmember = NonMember.query.all()
+    member = Member.query.all()
+    return render_template('clubplans.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
