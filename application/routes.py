@@ -7,9 +7,9 @@ from flask_login import logout_user, login_user, current_user
 @app.route("/")
 @app.route('/index')
 def index():
-    user1 = {'username': 'Boian'}
+    user = {'username': 'Boian'}
     posts = Post.query.all()
-    return render_template('index.html', user=user1, posts=posts, title="Welcome!")
+    return render_template('index.html', user=user, posts=posts, title="Welcome!")
 
 @app.route('/clubplans')
 def clubplans():
@@ -22,11 +22,11 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        flash("Login requested for user {}, remember_me = {}".format(form.username.data, form.remember_me.data))
+        flash('Login requested for user {}; "Remember me" is {}'.format(form.username.data, form.remember_me.data), 'flash')
         user = User.query.filter_by(username=form.username.data).first()
 
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash('Invalid username or password', 'flash')
             return redirect(url_for('login'))
 
         login_user(user, remember=form.remember_me.data)

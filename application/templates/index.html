@@ -2,19 +2,21 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="index">
+    <div class="index">
 
-            <h1>Hello, {{user.username}}!</h1>
+        {% if current_user.is_anonymous %}
+        <h1>Hello, guest!</h1>
+        {% else %}
+        <h1>Hello, {{current_user.username}}!</h1>
+        {% endif %}
 
-            {% for post in posts %}
+        {% for post in posts %}
 
-            <h2>{{ post.title }}</h2>
-            <h3>{{ post.body }}</h3>
+        <h2>{{ post.title }}</h2>
+        <h3>{{ post.body }}</h3>
 
-            {% endfor %}
+        {% endfor %}
 
-        </div>
     </div>
 
 {% endblock %}

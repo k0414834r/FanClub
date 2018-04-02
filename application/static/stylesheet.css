@@ -1,29 +1,40 @@
 body {
-    background: transparent url("green.jpg");
+    background: transparent url("forestsnow.gif");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 .heading {
     margin: 0 auto;
     width: 50%;
-    padding: none;
-    font-size: 24px;
+    font-size: 36px;
     font-family: Georgia;
-    border-bottom: 1px;
-    border-style: solid;
     border-color: black;
+    border: 0 0 5px 0;
+    display: table;
+    text-align: center;
 }
 
-li {
-    list-style: none;
-    display: inline;
+#one {
+    float: left;
+    width: 33%;
+    display: table-cell;
+}
+
+#two {
+    width: 33%;
+    display: table-cell;
+}
+
+#three {
+    float: right;
+    width: 33%;
+    display: table-cell;
 }
 
 .container {
     margin: 0 auto;
     width: 50%;
-    background-color: white;
     border-style: none;
     padding: none;
 }
@@ -31,32 +42,63 @@ li {
 .index {
     margin: 0 auto;
     width: 90%;
-    background-color: white;
     border-style: none;
-    padding: none;
+    padding: 0;
+    font-family: Georgia;
+}
+
+.login {
+    margin: 0 auto;
+    float: left;
+    padding: 10%;
+    width: 43%;
     font-family: Georgia;
 }
 
 h1 {
-	font-weight: bold;
-	text-decoration: underline;
+    color: white;
 	font-size: 44px;
 }
 
 h2 {
+    color: white;
 	font-style: italic;
 	font-size: 32px;
 }
+
 h3 {
+    color: white;
     font-size: 18px;
 }
 
 a {
+    color: white;
+    text-shadow: 5px white;
     text-decoration: none;
 }
 
 a:hover {
-    font-size: 32px;
-    color: green;
-    font-weight: bold;
+    color: #266847;
+}
+
+a:visited {
+    color: #266847;
+}
+
+a:visited:hover {
+    color: white;
+}
+
+.form {
+    color: white;
+    font-family: Georgia;
+}
+
+.flash {
+    color: white;
+    font-family: Georgia;
+}
+
+p {
+    color: white;
 }

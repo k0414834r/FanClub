@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+
     <div class="index">
 
-        {{ message }}
+        <!--{% if current_user.is_anonymous %}
+            {% for post in posts %}
+
+            <h2>{{ post.title }}</h2>
+            <h3>{{ post.body }}</h3>
+
+            {% endfor %}
+        {% else %}
+            {% for post in posts2 %}
+
+            <h2>{{ post.title }}</h2>
+            <h3>{{ post.body }}</h3>
+
+            {% endfor %}
+        {% endif %} -->
 
     </div>
-</div>
 
 {% endblock %}

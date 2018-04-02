@@ -17,34 +17,32 @@
     </head>
     <body>
         <div class="heading">
-            <ul>
-                <li><div style="float: left, padding-right: 10%"><a href="/index">Home</a></div></li>
-                <li><div style="float: right, padding-left: 10%"><a href="/clubplans">Club Plans</a></div></li>
+            <div id="one"><a href="/index">Home</a></div>
+            <div id="two"><a href="/clubplans">Club Plans</a></div>
 
-                <li><div style="text-align: center, padding-left: 10%, padding-right: 10%">
-                    {% if current_user.is_anonymous %}
-                    <a href="{{ url_for('login') }}">Login</a>
-                    {% else %}
-                    <a href="{{ url_for('logout') }}">Logout</a>
-                    <div>Hello, {{current_user.username}}!</div>
-                    {% endif %}
-                </div></li>
-            </ul>
+            <div id="three">
+                {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">Login</a>
+                {% else %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+                {% endif %}
+            </div>
         </div>
 
-        <div>
-            {% with messages = get_flashed_messages() %}
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                 <ul>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
                     {% endfor %}
                 </ul>
                 {% endif %}
             {% endwith %}
+
+            {% block content %} {% endblock %}
+
         </div>
-        <br><br>
-        {% block content %} {% endblock %}
 
     </body>
 </html>
