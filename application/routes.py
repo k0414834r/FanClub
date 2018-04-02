@@ -7,15 +7,14 @@ from flask_login import logout_user, login_user, current_user
 @app.route("/")
 @app.route('/index')
 def index():
-    user = {'username': 'Boian'}
     posts = Post.query.all()
-    return render_template('index.html', user=user, posts=posts, title="Welcome!")
+    return render_template('index.html', posts=posts, title="Welcome!")
 
 @app.route('/clubplans')
 def clubplans():
     nonmember = NonMember.query.all()
     member = Member.query.all()
-    return render_template('clubplans.html')
+    return render_template('clubplans.html', nonmember=nonmember, member=member)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,7 +51,7 @@ def signup():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash('Congratulations, you are now a registered user!', 'flash')
         return redirect(url_for('login'))
 
     return render_template('signup.html', title='Register', form=form)

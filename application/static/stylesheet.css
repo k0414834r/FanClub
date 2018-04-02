@@ -49,10 +49,14 @@ body {
 
 .login {
     margin: 0 auto;
-    float: left;
-    padding: 10%;
-    width: 43%;
+    vertical-align: middle;
+    padding: 3% 10% 3% 10%;
+    width: 38%;
     font-family: Georgia;
+    border: 5px;
+    border-color: white;
+    border-radius: 3px;
+    border-style: outset;
 }
 
 h1 {

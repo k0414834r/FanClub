@@ -4,21 +4,23 @@
 
     <div class="index">
 
-        <!--{% if current_user.is_anonymous %}
-            {% for post in posts %}
+        {% if current_user.is_anonymous %}
+            {% for post in nonmember %}
 
             <h2>{{ post.title }}</h2>
+            <p>{{ post.subtitle }}</p>
             <h3>{{ post.body }}</h3>
 
             {% endfor %}
         {% else %}
-            {% for post in posts2 %}
+            {% for post in member %}
 
             <h2>{{ post.title }}</h2>
+            <p>{{post.subtitle }}</p>
             <h3>{{ post.body }}</h3>
 
             {% endfor %}
-        {% endif %} -->
+        {% endif %}
 
     </div>
 
